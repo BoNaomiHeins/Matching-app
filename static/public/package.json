@@ -1,0 +1,17 @@
+{
+  "name": "project-tech",
+  "version": "1.0.0",
+  "description": "this is a project for blok-tech",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bo Heins",
+  "license": "MIT",
+  "dependencies": {
+    "camelcase": "^6.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
