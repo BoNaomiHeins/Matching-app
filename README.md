@@ -35,4 +35,4 @@ Bo Heins
 ## Licensie
 Met dit project maak ik gebruik van de MIT license. Voor meer informatie bekijk [License](https://github.com/BoNaomiHeins/Matching-app/blob/master/LICENSE).
 ## Bronnenlijst
-..
+...
