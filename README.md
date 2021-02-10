@@ -1,8 +1,6 @@
 # matching-applicatie
 
 ## Inhoud
-Table of Contents
-=================
 
    * [matching-applicatie](#matching-applicatie)
       * [Inhoud](#inhoud)
