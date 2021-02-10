@@ -1,6 +1,19 @@
 # matching-applicatie
 
 ## Inhoud
+Table of Contents
+=================
+
+   * [matching-applicatie](#matching-applicatie)
+      * [Inhoud](#inhoud)
+      * [Over FoundationMatch](#over-foundationmatch)
+      * [Getting started](#getting-started)
+         * [installatie](#installatie)
+         * [Gebruik](#gebruik)
+      * [Documentatie](#documentatie)
+      * [Auteur](#auteur)
+      * [Licensie](#licensie)
+      * [Bronnenlijst](#bronnenlijst)
 
 
 ## Over FoundationMatch
