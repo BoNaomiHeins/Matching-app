@@ -3,7 +3,7 @@ const app = express();
 const port = 8000;
 
 app.get("/", (req, res)=> {
-  res.send('hello welkom bij FoundationMatch, je bent op de home pagina')
+  res.sendFile(__dirname + '/static/public/index.html')
 })
 
 app.get('/about', (req, res) => {
