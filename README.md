@@ -25,7 +25,22 @@ Op basis van deze antwoorden krijgt de gebruiker verschillende foundation matche
 
 ## Getting started
 ### installatie
-...
+1. Clone MathFoundation
+```
+git clone https://github.com/BoNaomiHeins/Matching-app.git
+```
+2. Navigeer naar de hoofdmap van het project
+```
+cd Matchingapp/
+```
+3. Instaleer de Node package manager
+```
+npm install
+```
+4. Start de Node package manager
+```
+npm start
+```
 ### Gebruik
 De app draait op localhost:8000
 ## Documentatie
