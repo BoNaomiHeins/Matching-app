@@ -1,23 +1,34 @@
 const express =require('express');
+const bodyParser = require('body-parser');
 const app = express();
 const port = 8000;  
 const path = require('path');
 
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
+
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'))
+app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static(path.join(__dirname, 'static/public')));
 
+
 app.get("/", (req, res)=> {
-  res.sendFile(__dirname + '/static/public/index.html')
+  res.render('pages/home')
 })
 
-app.get("/home", (req, res)=> {
-  res.render('home')
+app.get("/vraag1", (req, res)=> {
+  // console.log(req.query);
+  res.render('pages/vraag1', {qs: req.query})
 })
 
-app.get("/matchresulaten", (req, res)=> {
-  res.render('matchresultaten')
+app.post("/vraag1", urlencodedParser, (req, res)=> {
+  console.log(req.body);
+  res.render('pages/matchresultaten', {data: req.body})
+})
+
+app.get("/matchresulaten:name", (req, res)=> {
+  res.render('pages/matchresultaten')
+
 })
 
 app.get('/Overons', (req, res) => {
