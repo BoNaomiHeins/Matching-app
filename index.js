@@ -43,7 +43,7 @@ app.get('/favorieten/:name', (req, res) => {
     res.render('favorieten', {persoon: req.params.name})
   })  
 
-app.use((req,res)=> {
+app.use('*', (req,res)=> {
     res.status(404).send("Page Not Found")
 })  
 
