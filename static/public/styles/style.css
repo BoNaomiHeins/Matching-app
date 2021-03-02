@@ -1,163 +1,231 @@
-*, *::after, *::before {
-    box-sizing:border-box;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    outline: 0;
-   }
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+}
 
 /*Algemeen */
-body{
-    width: 100vw;
-    font-family: 'Titillium Web', sans-serif;
-    width: 100vw;
-    font-size: 1em;
-    position: relative;
+body {
+  width: 100vw;
+  font-family: "Titillium Web", sans-serif;
+  width: 100vw;
+  font-size: 1em;
+  position: relative;
 }
 
-article{
-    width: 100vw;
-    padding: 2em;
-    position: relative;
+article {
+  width: 100vw;
+  padding: 2em;
+  position: relative;
 }
-
-
 
 /*Nav*/
-nav{
-    display: block;
-    height: 4em;
-    transition: 1s;
+nav {
+  display: block;
+  height: 4em;
+  transition: 1s;
 }
 
-nav ul{
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-    top: 0;
-    right: 0;
-    margin: .5em 2em;
+nav ul {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  top: 0;
+  right: 0;
+  margin: 0.5em 2em;
 }
-nav ul li{
-    list-style-type: none;
-    margin: .5em 0 1em 1em;
-}
-
-nav ul li a{
-    font-weight: 700;
-    line-height: 27px;
-    padding: 0 .4em .1em;
-    cursor: pointer;
-    color: black;
-    font-size: .8em;
-    text-transform: uppercase;
-    transition: .25s;
+nav ul li {
+  list-style-type: none;
+  margin: 0.5em 0 1em 1em;
 }
 
+nav ul li a {
+  font-weight: 700;
+  line-height: 27px;
+  padding: 0 0.4em 0.1em;
+  cursor: pointer;
+  color: black;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  transition: 0.25s;
+}
 
 /*home pagina*/
-body#home main{
-    width: 100vw;
-    height: 95vh;
-    background-image: url(../images/achtergrond.jpg);
-    background-size: cover;
-    background-position: center;
-    z-index: -2;
+body#home main {
+  width: 100vw;
+  height: 95vh;
+  background-image: url(../images/achtergrond.jpg);
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
 }
-body#home main article{
-    /* display: flex;
+body#home main article {
+  /* display: flex;
     justify-content: center;
     flex-wrap: wrap;
     align-content: center; */
 }
-body#home main article{
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+body#home main article {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-body#home main article h1{
-    font-size: 4em;
-    color: #fff;
-    text-shadow: #7d510a -3px 3px 3px;
+body#home main article h1 {
+  font-size: 4em;
+  color: #fff;
+  text-shadow: #7d510a -3px 3px 3px;
 }
 
-body#home main article p{
-    font-size: 2em;
-    font-weight: 400;
-    font-style: italic;
-    color: #fff;
-    text-shadow: #7d510a -3px 3px 3px;
-    margin-bottom: 1.5em;
+body#home main article p {
+  font-size: 2em;
+  font-weight: 400;
+  font-style: italic;
+  color: #fff;
+  text-shadow: #7d510a -3px 3px 3px;
+  margin-bottom: 1.5em;
 }
 
-body#home main article a{
-    background-color: bisque;
-    padding: 1em 2em;
-    color: black;
-    border-radius: 40px;
-    box-shadow: #523506 -3px 3px 10px;
+body#home main article a {
+  background-color: bisque;
+  padding: 1em 2em;
+  color: black;
+  border-radius: 40px;
+  box-shadow: #523506 -3px 3px 10px;
 }
 
+/*vraag1*/
+#vraag1 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+#vraag1 form {
+  width: 100%;
+  position: relative;
+  height: 50px;
+  margin-top: 1em;
+  overflow: hidden;
+}
+
+#vraag1 form input {
+  width: 100%;
+  height: 100%;
+  padding-top: 2em;
+  border: none;
+}
+
+#vraag1 form > label:first-of-type {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-bottom: 1px solid black;
+}
+
+.label-name::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-bottom: 3px solid #5fa8d3;
+  bottom: -1px;
+  left: 0;
+  transform: translateX(-100%);
+  transition: all 0.3s ease-in-out;
+}
+
+.content-name {
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+form input:focus + .label-name .content-name,
+form input:valid + .label-name .content-name {
+  transform: translateY(-150%);
+  font-size: 14px;
+  color: #5fa8d3;
+}
+
+form input:focus + .label-name::after,
+form input:valid + .label-name::after {
+  transform: translateX(0%);
+}
+/* #vraag1 #slider {
+    margin-top: 5em;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 1em;
+  background-color: black;
+  border-radius: 3px;
+}
 
 /*match resulaten*/
-article ul li{
-    list-style-position: inside;
+article ul li {
+  list-style-position: inside;
 }
 
-article > p:first-of-type{
-    font-size: 1.5em;
-    margin-bottom: .5em;
+article > p:first-of-type {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
 }
 
-article > p:nth-of-type(2), 
+article > p:nth-of-type(2),
 article > p:nth-of-type(3),
-article > p:nth-of-type(4){
-    margin: .3em 0 1em 0;
-    width: 50vw;
+article > p:nth-of-type(4) {
+  margin: 0.3em 0 1em 0;
+  width: 50vw;
 }
 
-body#resultaten h1{
-    margin-left: 1em; 
+body#resultaten h1 {
+  margin-left: 1em;
 }
 
-a{
-    text-decoration: none;
-    cursor: pointer;
+a {
+  text-decoration: none;
+  cursor: pointer;
 }
 
-body#resultaten article button{
-    text-decoration: none;
-    padding: 5em;
-    cursor: pointer;
-    margin: 2em 0 1em 0;
-    border: none;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 40px;
+body#resultaten article button {
+  text-decoration: none;
+  padding: 5em;
+  cursor: pointer;
+  margin: 2em 0 1em 0;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 40px;
 }
 
-button img{
-    width: 1.5em;
+button img {
+  width: 1.5em;
 }
 
-article > img{
-    position: absolute;
+article > img {
+  position: absolute;
 }
 
-article > img:first-of-type{
-    right: 15em;
-    top: 0;
-    width: 27em;
+article > img:first-of-type {
+  right: 15em;
+  top: 0;
+  width: 27em;
 }
 
-article > img:nth-of-type(2){
-    right: -.8em;
-    top: 3em;
-    width: 28em;
+article > img:nth-of-type(2) {
+  right: -0.8em;
+  top: 3em;
+  width: 28em;
 }
-

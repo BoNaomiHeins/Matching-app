@@ -5,12 +5,16 @@
         <section>
             <h1>Oefenen met input</h1>
             <form id="eerstevraagform" method="POST" action="/vraag1" >
-                <label for="who"></label>
-                <input type="text" name="who" value="<%= qs.person %>">
-                <input type="submit" value="submit">
+                <input type="text" name="name" value="<%= qs.person %>" required>
+                <label for="name" class="label-name"><span class="content-name">Naam</span></label>
+
+                <!-- <input type="range" min="1" max="100" value="50" id="slider"> -->
+                <!-- <input type="submit" value="submit"> -->
+
             </form>
             <!-- <p><%= qs.person %></p> -->
         </section>
+        
     </main>
 </body>
 </html>
