@@ -60,4 +60,4 @@ app.use("*", (req, res) => {
   res.status(404).send("Page Not Found");
 });
 
-// app.listen(port, () => console.log(`listening on port ${port}`));
+app.listen(port, () => console.log(`listening on port ${port}`));
