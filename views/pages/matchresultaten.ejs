@@ -3,37 +3,26 @@
 <body id="resulaten">
     <%- include('../partials/nav'); %>
 
-    <h1>Perfecte match voor <%= data.name %> </h1>
+    <h1>Foundation advies </h1>
+    <p>voor <%= antwoorden.name %></p>
 
+    <form id="update"  method="POST" action="/update">
+        <input type="hidden" name="userID" value="<%= antwoorden.userID %>">
+        <input type="text" value="<%= antwoorden.name %>">
+        <input type="number" value="<%= antwoorden.maxPrijs %>">
+        <input type="submit" >
+    </form>
+    
+    <!-- resultaten -->
     <article>
-        <!--bron van de informatie: https://www.douglas.nl/productbrand_733507.html?trac=nl.01psh.goo.9976225783.733507.70855139992.000000&gclid=CjwKCAiAsaOBBhA4EiwAo0_AnAkuSAD7-QUeQXFQl4M7aQmxnbwxSYwqTP5MNCgR0xkgwoo77eSfiBoCAx4QAvD_BwE-->
-        <h2>Luminous Silk Foundation</h2>
-        <p>Giorgio Armani</p>
+        <h2></h2>
+        <p></p>
+        <img src="">
+        <p></p>
+        <p></p>
 
-        <h3>Productbeschrijving</h3>
-        <ul>
-            <li><strong>Kleur:</strong> 3.5</li>
-            <li><strong>Huidtype</strong> Normale huid</li>
-        </ul>
-
-        <p>Armani Luminous Silk Foundation, de iconische foundation van Armani Beauty, zorgt voor een perfecte glow en een stralende huid voor een verbeterde natuurlijke schoonheid.</p>
-        
-        <h4>Vloeibare foundation</h4>
-        <p>De bekroonde vloeibare foundation, aanbevolen door visagisten en aanbeden door beroemdheden, combineert een hoge impact met een gewichtloze textuur.</p>
-        
-        <h4>Resultaten</h4>
-        <p>Luminous Silk Foundation glijdt over de huid met een zijdezachte textuur en verbetert, egaliseert en perfectioneert de teint voor een onmiddellijk stralende huid. De hydraterende foundation biedt een opbouwende dekking van licht tot medium.</p>
-        <ul>
-            <li>Vloeibare foundation</li>
-            <li>Eindeloze precisie</li>
-            <li>Natuurlijke finish</li>
-            <li>Moduleerbare dekking</li>
-        </ul>
-
-        <button><img src="images/toevoeg-hartje.webp">Toevoegen</button>
-
-        <img src="images/makeup-model.jpg">
-        <img src="images/GEO_FOUNDATION_01_13-v2.png">
     </article>
+
+    
 </body>
 </html>

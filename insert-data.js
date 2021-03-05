@@ -1,31 +1,38 @@
+require("dotenv").config();
 const { MongoClient } = require("mongodb");
 
 const uri = process.env.MONGODB_URI;
+
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-
 // The database to use
-const dbName = "test";
-
+const dbName = "foundationMatch";
 async function run() {
   try {
     await client.connect();
     console.log("Connected correctly to server");
     const db = client.db(dbName);
     // Use the collection "people"
-    const col = db.collection("people");
+    const col = db.collection("foundation");
     // Construct a document
-    const personDocument = {
-      name: { first: "Bo", last: "Heins" },
-      birth: new Date(2002, 2, 6), // June 23, 1912
-      death: new Date(1954, 5, 7), // June 7, 1954
-      contribs: ["Turing machine", "Turing test", "Turingery"],
-      views: 1260000,
+    const foundationsDocument = {
+      name: "Airbrush flawless foutdation",
+      brand: "Charlotte Tilbury",
+      price: 40.0,
+      productDetails: [
+        "FLAWLESS",
+        "PORELESS-looking",
+        "stay all day",
+        "weightless",
+        "full coverage",
+        "matte finish",
+      ],
     };
+
     // Insert a single document, wait for promise so we can read it back
-    const p = await col.insertOne(personDocument);
+    const p = await col.insertOne(foundationsDocument);
     // Find one document
     const myDoc = await col.findOne();
     // Print to the console
