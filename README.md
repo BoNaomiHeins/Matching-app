@@ -50,4 +50,9 @@ Bo Heins
 ## Licensie
 Met dit project maak ik gebruik van de MIT license. Voor meer informatie bekijk [License](https://github.com/BoNaomiHeins/Matching-app/blob/master/LICENSE).
 ## Bronnenlijst
-...
+* Anoniem. (sd). Get Started with Atlas. Opgehaald van mongoDB: https://docs.atlas.mongodb.com/getting-started/
+* Anoniem. (sd). installing. Opgehaald van Express: https://expressjs.com/en/starter/installing.html
+* Anoniem. (sd). What is EJS? Opgehaald van EJS: https://ejs.co
+* Ed, D. (2018, dec 10). Input Animations With HTML And CSS. Opgehaald van youtube: https://www.youtube.com/watch?v=IxRJ8vplzAo
+* TheNetNinja. (2016, 6 22). Node JS Tutorial for Beginners #25 - Template Engines. Opgehaald van youtube: https://www.youtube.com/watch?v=oZGmHNZv7Sc
+* TheNetNinja. (2016, 6 25). Node JS Tutorial for Beginners #26 - Template Engines ( part 2 ). Opgehaald van Youtube: https://www.youtube.com/watch?v=RczQp3zCPXs&t=156s
