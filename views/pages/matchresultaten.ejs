@@ -3,25 +3,17 @@
 <body id="resulaten">
     <%- include('../partials/nav'); %>
 
-    <h1>Foundation advies </h1>
+    <h1>Foundation advies</h1>
     <p>voor <%= antwoorden.name %></p>
 
     <form id="update"  method="POST" action="/update">
-        <input type="hidden" name="userID" value="<%= antwoorden.userID %>">
-        <input type="text" value="<%= antwoorden.name %>">
-        <input type="number" value="<%= antwoorden.maxPrijs %>">
+        <input type="hidden" name="userID" id="userID" value="<%= antwoorden.userID %>">
+        <input type="text" name="name" value="<%= antwoorden.name %>">
+        <input type="number" name="maxPrijs" value="<%= antwoorden.maxPrijs %>">
         <input type="submit" >
     </form>
     
-    <!-- resultaten -->
-    <article>
-        <h2></h2>
-        <p></p>
-        <img src="">
-        <p></p>
-        <p></p>
-
-    </article>
+    <%- include('../partials/foundationartikel'); %>
 
     
 </body>

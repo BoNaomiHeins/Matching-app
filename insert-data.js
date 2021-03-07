@@ -1,5 +1,5 @@
-require("dotenv").config();
-const { MongoClient } = require("mongodb");
+require('dotenv').config();
+const { MongoClient } = require('mongodb');
 
 const uri = process.env.MONGODB_URI;
 
@@ -8,26 +8,26 @@ const client = new MongoClient(uri, {
   useUnifiedTopology: true,
 });
 // The database to use
-const dbName = "foundationMatch";
+const dbName = 'foundationMatch';
 async function run() {
   try {
     await client.connect();
-    console.log("Connected correctly to server");
+    console.log('Connected correctly to server');
     const db = client.db(dbName);
     // Use the collection "people"
-    const col = db.collection("foundation");
+    const col = db.collection('foundation');
     // Construct a document
     const foundationsDocument = {
-      name: "Airbrush flawless foutdation",
-      brand: "Charlotte Tilbury",
+      name: 'Airbrush flawless foutdation',
+      brand: 'Charlotte Tilbury',
       price: 40.0,
       productDetails: [
-        "FLAWLESS",
-        "PORELESS-looking",
-        "stay all day",
-        "weightless",
-        "full coverage",
-        "matte finish",
+        'FLAWLESS',
+        'PORELESS-looking',
+        'stay all day',
+        'weightless',
+        'full coverage',
+        'matte finish',
       ],
     };
 

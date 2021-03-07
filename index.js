@@ -1,15 +1,15 @@
-require("dotenv").config();
-const express = require("express");
-const bodyParser = require("body-parser");
+require('dotenv').config();
+const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
 const port = 8000;
-const path = require("path");
+const path = require('path');
 
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-const { MongoClient } = require("mongodb");
-const { Router } = require("express");
+const { MongoClient } = require('mongodb');
+const { Router } = require('express');
 
 const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri, {
@@ -17,13 +17,15 @@ const client = new MongoClient(uri, {
   useUnifiedTopology: true,
 });
 
-const objectId = require("mongodb").ObjectID;
-const dbName = "test";
+const ObjectId = require('mongodb').ObjectID;
+const { get } = require('http');
+
+const dbName = 'testDatabase';
 
 async function run() {
   try {
     await client.connect();
-    console.log("Connected correctly to server");
+    console.log('Connected correctly to server');
     const db = client.db(dbName);
   } catch (err) {
     console.error(err.stack);
@@ -32,61 +34,67 @@ async function run() {
 }
 run().catch(console.dir);
 
-app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views"));
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
-app.use(express.static(path.join(__dirname, "static/public")));
+app.use(express.static(path.join(__dirname, 'static/public')));
 
-app.get("/", (req, res) => {
-  res.render("pages/home");
+app.get('/', (req, res) => {
+  res.render('pages/home');
 });
 
-app.get("/vraag1", (req, res) => {
+app.get('/vraag1', (req, res) => {
   console.log(req.query);
-  res.render("pages/vraag1", { qs: req.query });
+  res.render('pages/vraag1', { qs: req.query });
 });
 
-app.post("/vraag1", urlencodedParser, (req, res) => {
+app.post('/vraag1', urlencodedParser, (req, res) => {
   const antwoorden = {
-    userID: objectId().toString(),
+    userID: ObjectId().toString(),
     name: req.body.name,
     maxPrijs: req.body.maxPrijs,
   };
+  console.log(antwoorden);
   const db = client.db(dbName);
-  db.collection("people").insertOne(antwoorden, () => {
-    console.log(antwoorden.name, "Heeft succesvol form ingezonden");
+  db.collection('people').insertOne(antwoorden, () => {
+    console.log(antwoorden.name, 'Heeft succesvol form ingezonden');
   });
-  res.render("pages/matchresultaten", { antwoorden: antwoorden });
-
-  // console.log(req.body);
-  // res.render("pages/matchresultaten", { data: req.body });
-});
-
-app.post("/update", urlencodedParser, (req, res) => {
-  const antwoorden = {
-    name: req.body.name,
-    maxPrijs: req.body.maxPrijs
-  };
-  const id = req.body.id;
-
-  const db = client.db(dbName);
-
-  db.collection("people").updateOne(
-    { "_id": objectId(id) },
-    { $set: antwoorden },
-    () => {
-      console.log("geupdate antwoorden");
-      res.render("pages/matchresultaten", { antwoorden: antwoorden });
-    }
+  res.render(
+    'pages/matchresultaten',
+    { antwoorden },
+    console.log('formulier invullen gelukt'),
   );
 });
 
-app.get("/matchresulaten:name", (req, res) => {
-  res.render("pages/matchresultaten");
+app.post('/update', urlencodedParser, async (req, res) => {
+  const { id } = req.params;
+  const db = client.db(dbName);
+  const antwoorden = {
+    userID: req.body.userID,
+    name: req.body.name,
+    maxPrijs: req.body.maxPrijs,
+  };
+
+  console.log(antwoorden);
+
+  await db
+    .collection('people')
+    .updateOne({ userID: req.body.userID }, { $set: antwoorden }, (id) => {
+      console.log(`${antwoorden.name} geupdate antwoorden`);
+    });
+  res.render(
+    'pages/matchresultaten',
+    { antwoorden },
+    console.log('formulier updaten gelukt'),
+  );
 });
 
-app.use("*", (req, res) => {
-  res.status(404).send("Page Not Found");
+app.get('/matchresulaten:name', (req, res) => {
+  res.render('pages/matchresultaten');
+});
+
+app.use('*', (req, res) => {
+  res.status(404).send('Page Not Found');
 });
 
 app.listen(port, () => console.log(`listening on port ${port}`));
