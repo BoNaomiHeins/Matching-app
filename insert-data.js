@@ -1,3 +1,4 @@
+// Met deze pagina heb ik verschillende foundations in de database gezet
 require('dotenv').config();
 const { MongoClient } = require('mongodb');
 
@@ -7,18 +8,18 @@ const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-// The database to use
+// De database in een Constante
 const dbName = 'testDatabase';
 async function run() {
   try {
     await client.connect();
     console.log('Connected correctly to server');
     const db = client.db(dbName);
-    // Use the collection "people"
+    // collection "foundation"
     const col = db.collection('foundation');
-    // Construct a document
+    // document opmaken
     const foundationsDocument = {
-      name: 'Airbrush flawless foutdation',
+      name: 'Airbrush flawless foundation',
       brand: 'Charlotte Tilbury',
       price: 40.0,
       productDetails: [

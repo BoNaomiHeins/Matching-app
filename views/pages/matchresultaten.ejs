@@ -1,6 +1,6 @@
 <%- include('../partials/head'); %>
 
-<body id="resulaten">
+<body id="matchresultaten">
     <%- include('../partials/nav'); %>
 
     <h1>Foundation advies</h1>
@@ -13,5 +13,14 @@
         <input type="submit" >
     </form>
     
+    <section>
+        <% foundation.forEach(foundation => { %>
+            <article>
+                <h2 class="titel"><%= foundation.name %></h2>
+                <p class="merk"><%= foundation.brand %></p>
+                <p class="prijs">€<%= foundation.price %></p>
+            </article>
+        <% }) %>
+</section>
 </body>
 </html>
