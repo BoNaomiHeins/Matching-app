@@ -132,7 +132,7 @@ body#vraag1 main section:nth-of-type(3) {
   margin: 1em 0;
 }
 
- /* De volgende bron geld voor regel 138 t/m 229
+/* De volgende bron geld voor regel 138 t/m 229
     bron: Ed, D. (2018, dec 10). Input Animations With HTML And CSS. Opgehaald van youtube: https://www.youtube.com/watch?v=IxRJ8vplzAo
     van deze bron heb ik vooral de css gebruikt om de form te stijlen  */
 #vraag1 form {
@@ -178,7 +178,7 @@ label {
 label span {
   z-index: 4;
   background-color: #fff;
-  padding-top: .5em;
+  padding-top: 0.5em;
 }
 
 .label-name::after,
@@ -268,8 +268,12 @@ article > p:nth-of-type(4) {
   font-size: 17px;
 }
 
-body#resultaten h1 {
-  margin-left: 5em;
+body#matchresultaten h1 {
+}
+
+body#matchresultaten > p:first-of-type {
+  font-size: 18px;
+  font-weight: bold;
 }
 
 a {
@@ -277,35 +281,18 @@ a {
   cursor: pointer;
 }
 
-body#resultaten article button {
-  text-decoration: none;
-  padding: 5em;
-  cursor: pointer;
-  margin: 2em 0 1em 0;
-  border: none;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 40px;
+#matchresultaten {
+  margin: 2em;
+  width: auto;
 }
 
-button img {
-  width: 1.5em;
+#matchresultaten input {
+  width: 15em;
+  border-bottom: 1px solid black;
 }
 
-article > img {
-  position: absolute;
-}
-
-article > img:first-of-type {
-  right: 15em;
-  top: 0;
-  width: 27em;
-}
-
-article > img:nth-of-type(2) {
-  right: -0.8em;
-  top: 3em;
-  width: 28em;
+#matchresultaten .submit {
+  width: auto;
+  margin-left: 0;
+  margin-bottom: 1em;
 }

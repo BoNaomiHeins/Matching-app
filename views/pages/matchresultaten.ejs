@@ -8,9 +8,14 @@
 
     <form id="update"  method="POST" action="/update">
         <input type="hidden" name="userID" id="userID" value="<%= antwoorden.userID %>">
+        <div class="container-name">
         <input type="text" name="name" value="<%= antwoorden.name %>">
+        </div>
+        <div class="container-prijs">
         <input type="number" name="maxPrijs" value="<%= antwoorden.maxPrijs %>">
-        <input type="submit" >
+        <p>€</p>
+        </div>
+        <input type="submit" class="submit">
     </form>
     
     <section>

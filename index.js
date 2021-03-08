@@ -66,11 +66,15 @@ app.post("/matchresultaten", urlencodedParser, (req, res) => {
   db.collection("people").insertOne(antwoorden, () => {
     console.log(antwoorden.name, "Heeft succesvol form ingezonden");
   });
-  res.render(
-    "pages/matchresultaten",
-    { antwoorden },
-    console.log("formulier invullen gelukt")
-  );
+  db.collection("foundation")
+    .find()
+    .toArray((err, foundation) => {
+      res.render(
+        "pages/matchresultaten",
+        { antwoorden, foundation },
+        console.log("formulier invullen gelukt")
+      );
+    });
 });
 
 // Om de antwoorden later nog te kunnen updaten moeten eerste de benodigede constanten geinitialisatieerd worden
@@ -99,20 +103,6 @@ app.post("/update", urlencodedParser, async (req, res) => {
     console.log("formulier updaten gelukt")
   );
 });
-
-// app.get('/matchresulaten:name', (req, res) => {
-//   res.render('pages/matchresultaten');
-// });
-
-app.get("/matchresultaten", (req, res) => {
-  const db = client.db(dbName);
-  db.collection("foundation")
-    .find()
-    .toArray((err, foundation) => {
-      res.render("pages/matchresultaten", { foundation: foundation });
-    });
-});
-
 
 //Voor alle pagina's die niet zijn gemaakt krijgt de bezoeker een 404 pagina te zien
 app.use("*", (req, res) => {

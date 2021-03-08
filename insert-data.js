@@ -1,6 +1,6 @@
 // Met deze pagina heb ik verschillende foundations in de database gezet
-require('dotenv').config();
-const { MongoClient } = require('mongodb');
+require("dotenv").config();
+const { MongoClient } = require("mongodb");
 
 const uri = process.env.MONGODB_URI;
 
@@ -9,26 +9,26 @@ const client = new MongoClient(uri, {
   useUnifiedTopology: true,
 });
 // De database in een Constante
-const dbName = 'testDatabase';
+const dbName = "testDatabase";
 async function run() {
   try {
     await client.connect();
-    console.log('Connected correctly to server');
+    console.log("Connected correctly to server");
     const db = client.db(dbName);
     // collection "foundation"
-    const col = db.collection('foundation');
+    const col = db.collection("foundation");
     // document opmaken
     const foundationsDocument = {
-      name: 'Airbrush flawless foundation',
-      brand: 'Charlotte Tilbury',
-      price: 40.0,
+      name: "Fit Me Matte & Poreless Foundation",
+      brand: "MAYBELLINE",
+      price: 3.19,
       productDetails: [
-        'FLAWLESS',
-        'PORELESS-looking',
-        'stay all day',
-        'weightless',
-        'full coverage',
-        'matte finish',
+        "FLAWLESS",
+        "PORELESS-looking",
+        "stay all day",
+        "weightless",
+        "full coverage",
+        "matte finish",
       ],
     };
 
