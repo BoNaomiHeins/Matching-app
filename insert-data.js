@@ -8,7 +8,7 @@ const client = new MongoClient(uri, {
   useUnifiedTopology: true,
 });
 // The database to use
-const dbName = 'foundationMatch';
+const dbName = 'testDatabase';
 async function run() {
   try {
     await client.connect();
