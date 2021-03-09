@@ -78,7 +78,7 @@ app.post("/matchresultaten", urlencodedParser, (req, res) => {
 });
 
 // Om de antwoorden later nog te kunnen updaten moeten eerste de benodigede constanten geinitialisatieerd worden
-app.post("/update", urlencodedParser, async (req, res) => {
+app.post("/matchresultaten", urlencodedParser, async (req, res) => {
   const { id } = req.params;
   const db = client.db(dbName);
   const antwoorden = {
