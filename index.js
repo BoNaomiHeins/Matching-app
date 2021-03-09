@@ -55,7 +55,7 @@ app.get("/vraag1", (req, res) => {
 });
 
 //Zet de antwoorden in een schema die naar de database verstuurd kan worden
-app.post("/matchresultaten", urlencodedParser, (req, res) => {
+app.post("/matchresultaten", urlencodedParser, (req, res, next) => {
   const antwoorden = {
     userID: ObjectId().toString(),
     name: req.body.name,
@@ -75,6 +75,7 @@ app.post("/matchresultaten", urlencodedParser, (req, res) => {
         console.log("formulier invullen gelukt")
       );
     });
+  next();
 });
 
 // Om de antwoorden later nog te kunnen updaten moeten eerste de benodigede constanten geinitialisatieerd worden
